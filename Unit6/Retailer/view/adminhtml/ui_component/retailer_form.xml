@@ -11,7 +11,7 @@
             <item name="provider" xsi:type="string">retailer_form.retailer_form_data_source</item>
             <item name="deps" xsi:type="string">retailer_form.retailer_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Retailere Information</item>
+        <item name="label" xsi:type="string" translate="true">Retailer Information</item>
         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
             <item name="namespace" xsi:type="string">retailer_form</item>
@@ -33,7 +33,7 @@
             <argument name="requestFieldName" xsi:type="string">retailer_id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="submit_url" xsi:type="url" path="retailer/index/save"/>
+                    <item name="submit_url" xsi:type="url" path="*/*/save"/>
                 </item>
             </argument>
         </argument>

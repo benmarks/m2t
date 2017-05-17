@@ -17,7 +17,7 @@ class Save extends \Magento\Backend\App\Action
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Magento_Cms::save';
+    const ADMIN_RESOURCE = 'Unit6_Retailer::retailer';
 
 
     /**
@@ -61,16 +61,16 @@ class Save extends \Magento\Backend\App\Action
 
             try {
                 $dataModel = $this->repository->save($dataModel);
-                $this->messageManager->addSuccess(__('You saved the retailer.'));
+                $this->messageManager->addSuccessMessage(__('You saved the retailer.'));
 
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['retailer_id' => $dataModel->getId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (LocalizedException $e) {
-                $this->messageManager->addError($e->getMessage());
+                $this->messageManager->addErrorMessage($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addException($e, __('Something went wrong while saving the retailer.'));
+                $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the retailer.'));
             }
 
             return $resultRedirect->setPath('*/*/edit', ['retailer_id' => $this->getRequest()->getParam('retailer_id')]);

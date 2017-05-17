@@ -12,6 +12,13 @@ use Magento\Framework\View\Result\PageFactory;
 class Index extends \Magento\Backend\App\Action
 {
     /**
+     * Authorization level of a basic admin session
+     *
+     * @see _isAllowed()
+     */
+    const ADMIN_RESOURCE = 'Unit6_Retailer::retailer';
+
+    /**
      * @var PageFactory
      */
     protected $resultPageFactory;
@@ -37,7 +44,7 @@ class Index extends \Magento\Backend\App\Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        //$resultPage->setActiveMenu('Magento_Cms::cms_page');
+        $resultPage->setActiveMenu('Retailer::retailer');
         $resultPage->addBreadcrumb(__('Retailer'), __('Retailer'));
         $resultPage->addBreadcrumb(__('Manage Retailers'), __('Manage Retailers'));
         $resultPage->getConfig()->getTitle()->prepend(__('Retailers'));
